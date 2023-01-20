@@ -13,10 +13,10 @@ public class Review {
 
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        int testCases = Integer.parseInt(bufferedReader.readLine());
+        int testCases = Integer.parseInt(bufferedReader.readLine().trim());
         List<String> stringsToCheck = new ArrayList<>();
         while (testCases > 0) {
-            stringsToCheck.add(bufferedReader.readLine());
+            stringsToCheck.add(bufferedReader.readLine().replaceAll("\\s+$", ""));
             testCases--;
         }
 
