@@ -6,6 +6,7 @@ public class Recursion {
 
 
     public static void main(String[] args) throws IOException {
+
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("OUTPUT_PATH"));
 
