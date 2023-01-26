@@ -1,5 +1,6 @@
 package com.hackerrank.days;
 
+import com.hackerrank.objects.Person;
 import com.hackerrank.objects.Student;
 
 import java.io.BufferedReader;

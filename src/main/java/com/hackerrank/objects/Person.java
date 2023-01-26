@@ -3,7 +3,6 @@ package com.hackerrank.objects;
 public class Person {
 
 
-
     private String firstName;
     private String lastName;
     private Integer idNumber;
@@ -23,12 +22,12 @@ public class Person {
                 '}';
     }
 
-    public  void printPerson() {
+    public void printPerson() {
         System.out.println(
                 "Name: " + this.lastName + ", " + this.firstName
                         + "\nID: " + this.idNumber
         );
-       
+
     }
 }
 
