@@ -13,6 +13,7 @@ public class Abstract {
         String author = scanner.nextLine();
         Integer price = scanner.nextInt();
 
+        scanner.close();
         Book book = new MyBook(title, author, price);
         book.display();
     }
