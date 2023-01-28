@@ -3,9 +3,9 @@ package com.hackerrank.objects;
 public class Person {
 
 
-    private String firstName;
-    private String lastName;
-    private Integer idNumber;
+    private final String firstName;
+    private final String lastName;
+    private final Integer idNumber;
 
     public Person(String firstName, String lastName, Integer idNumber) {
         this.firstName = firstName;
