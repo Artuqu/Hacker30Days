@@ -13,9 +13,8 @@ public class Scope {
         List<Integer> elements = new ArrayList<>(arraySize);
         String[] integersToAdd = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
         int i = 0;
-        while (arraySize > 0) {
+        while (arraySize > i) {
             elements.add(Integer.valueOf(integersToAdd[i]));
-            arraySize--;
             i++;
         }
         int result = findMaxDifference(elements);
