@@ -14,7 +14,7 @@ public class LinkedListTask {
         for (int i = 0; i < arrayLength; i++) {
             head.add(scanner.nextInt());
         }
-
+        scanner.close();
         for (Integer i : head) {
             System.out.print(i + " ");
         }

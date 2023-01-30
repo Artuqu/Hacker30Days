@@ -21,7 +21,7 @@ public class ClassVsInstance {
         }
         checkAges(agesList);
 
-
+        bufferedReader.close();
     }
 
     private static void checkAges(List<Integer> agesList) {
