@@ -18,14 +18,14 @@ public class Palindrome {
 
     private static void isItPalindrome2(String toCheck) {
         Stack<String> fromEnd = new Stack<>();
-        LinkedList fromStart = new LinkedList();
+        LinkedList queue = new LinkedList();
         boolean isPalindrome = true;
         for (int i = 0; i < toCheck.length(); i++) {
             fromEnd.push(String.valueOf(toCheck.charAt(i)));
-            fromStart.add(String.valueOf(toCheck.charAt(i)));
+            queue.add(String.valueOf(toCheck.charAt(i)));
         }
         while (!fromEnd.isEmpty()) {
-            String begin = String.valueOf(fromStart.remove(0));
+            String begin = String.valueOf(queue.remove(0));
             String end = fromEnd.pop();
             if (!end.equals(begin)) {
                 isPalindrome = false;
