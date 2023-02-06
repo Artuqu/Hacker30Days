@@ -36,14 +36,15 @@ public class Generics<T> {
         List<T> listToPrint = new ArrayList<>();
         int firstListLength = scanner.nextInt();
         while (firstListLength > 0) {
-            listToPrint.add((T) scanner.next());
+            listToPrint.add((T) scanner.next().trim());
             firstListLength--;
         }
         int secondListLength = scanner.nextInt();
         while (secondListLength > 0) {
-            listToPrint.add((T) scanner.next());
+            listToPrint.add((T) scanner.next().trim());
             secondListLength--;
         }
+        scanner.close();
         for (T t : listToPrint) {
             System.out.println(t);
         }
