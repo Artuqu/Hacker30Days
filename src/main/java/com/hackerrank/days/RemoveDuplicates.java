@@ -16,11 +16,13 @@ public class RemoveDuplicates {
             noDuplicates.add(scanner.nextInt());
             arrayLength--;
         }
+//        noDuplicates.stream().sorted()
+//                .forEach(System.out::println);
         LinkedList<Integer> toSort = new LinkedList<>(noDuplicates);
         Collections.sort(toSort);
 
-        for (Integer i:toSort) {
-            System.out.println(i + " ");
+        for (Integer i : toSort) {
+            System.out.print(i + " ");
 
         }
     }

@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-public class twoDArray {
+public class TwoDArray {
 
 
     public static void main(String[] args) throws IOException {
