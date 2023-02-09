@@ -16,8 +16,9 @@ public class RemoveDuplicates {
             noDuplicates.add(scanner.nextInt());
             arrayLength--;
         }
+        scanner.close();
 //        noDuplicates.stream().sorted()
-//                .forEach(System.out::println);
+//                .forEach(System.out::print);
         LinkedList<Integer> toSort = new LinkedList<>(noDuplicates);
         Collections.sort(toSort);
 

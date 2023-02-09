@@ -22,7 +22,7 @@ public class EmptyBST<D extends Comparable<D>> implements Tree<D> {
         return false;
     }
 
-    @Override
+        @Override
     public NonEmptyBST<D> add(D element) {
         return new NonEmptyBST<>(element);
     }

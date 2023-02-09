@@ -3,18 +3,18 @@ package com.hackerrank.objects;
 import com.hackerrank.other.Tree;
 
 public class NonEmptyBST<D extends Comparable<D>> implements Tree<D> {
-    D data;
+    D root;
     Tree<D> left;
     Tree<D> right;
 
     public NonEmptyBST(D element) {
-        this.data = element;
+        this.root = element;
         left = new EmptyBST<>();
         right = new EmptyBST<>();
     }
 
     public NonEmptyBST(D element, Tree<D> leftTree, Tree<D> rightTree) {
-        data = element;
+        root = element;
         left = leftTree;
         right = rightTree;
     }
@@ -31,9 +31,9 @@ public class NonEmptyBST<D extends Comparable<D>> implements Tree<D> {
 
     @Override
     public boolean member(D element) {
-        if (data == element) {
+        if (root == element) {
             return true;
-        } else if (element.compareTo(data) < 0) {
+        } else if (element.compareTo(root) < 0) {
             return left.member(element);
         } else {
             return right.member(element);
@@ -42,12 +42,12 @@ public class NonEmptyBST<D extends Comparable<D>> implements Tree<D> {
 
     @Override
     public NonEmptyBST<D> add(D element) {
-        if (data == element) {
+        if (root == element) {
             return this;
-        } else if (element.compareTo(data) < 0) {
-            return new NonEmptyBST<>(data, left.add(element), right);
+        } else if (element.compareTo(root) < 0) {
+            return new NonEmptyBST<>(root, left.add(element), right);
         } else {
-            return new NonEmptyBST<>(data, left, right.add(element));
+            return new NonEmptyBST<>(root, left, right.add(element));
         }
     }
 }
