@@ -20,7 +20,6 @@ public class RemoveDuplicates {
 //                .forEach(System.out::print);
 //        List<Integer> toSort = new ArrayList<>(noDuplicates);
 //        Collections.sort(toSort);
-
 //        for (Integer i : toSort) {
 //            System.out.print(i + " ");
         for (int i = 0; i < linkedNoDuplicates.size() - 1; i++) {
@@ -31,8 +30,6 @@ public class RemoveDuplicates {
         }
         for (Integer i : linkedNoDuplicates) {
             System.out.print(i + " ");
-
         }
-
     }
 }
