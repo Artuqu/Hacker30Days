@@ -49,12 +49,12 @@ public class Hangman {
 
     public StringBuilder initializeCurrentGuess() {
         StringBuilder current = new StringBuilder();
-        for (int i = 0; i < mysteryWord.length(); i++) {
-//            if (i % 2 == 0) {
-                current.append("_ ");
-//            } else {
-//                current.append(" ");
-//            }
+        for (int i = 0; i < mysteryWord.length() * 2; i++) {
+            if (i % 2 == 0) {
+                current.append("_");
+            } else {
+                current.append(" ");
+            }
         }
         return current;
     }
@@ -63,23 +63,63 @@ public class Hangman {
         return "Current Guess: " + currentGuess.toString();
     }
 
-    public String drawPicture() {
-        switch (currentTry) {
-            case 0:
-                return noPersonDraw();
-            case 1:
-                return addHeadDraw();
-            case 2:
-                return addBodyDraw();
-            case 3:
-                return addOneArmDraw();
-            case 4:
-                return addSecondArmDraw();
-            case 5:
-                return addFirstLegDraw();
-            default:
-                return fullPersonDraw();
+    public boolean gameOver() {
+        if (didWeWin()) {
+            System.out.println();
+            System.out.println("Congrats! You won! You guessed the right word!");
+            return true;
+        } else if (didWeLose()) {
+            System.out.println();
+            System.out.println("Sorry you lost! You spend all of your 6 tries." +
+                    "The word was " + mysteryWord + ".");
+            return true;
         }
+        return false;
+    }
+
+    private boolean didWeWin() {
+        String guess = getCondensedCurrentGuess();
+        return guess.equals(mysteryWord);
+    }
+
+    private String getCondensedCurrentGuess() {
+        String guess = currentGuess.toString();
+        return guess.replace(" ", "");
+    }
+
+    private boolean didWeLose() {
+        return currentTry == maxTries;
+    }
+
+    public boolean isGuessedAlready(char guess) {
+        return previousGuesses.contains(guess);
+    }
+
+    public boolean playGuess(char guess) {
+        boolean isItAGoodGuess = false;
+        previousGuesses.add(guess);
+        for (int i = 0; i < mysteryWord.length(); i++) {
+            if (mysteryWord.charAt(i) == guess) {
+                currentGuess.setCharAt(i * 2, guess);
+                isItAGoodGuess = true;
+            }
+        }
+        if (!isItAGoodGuess) {
+            currentTry++;
+        }
+        return isItAGoodGuess;
+    }
+
+    public String drawPicture() {
+        return switch (currentTry) {
+            case 0 -> noPersonDraw();
+            case 1 -> addHeadDraw();
+            case 2 -> addBodyDraw();
+            case 3 -> addOneArmDraw();
+            case 4 -> addSecondArmDraw();
+            case 5 -> addFirstLegDraw();
+            default -> fullPersonDraw();
+        };
     }
 
 
@@ -160,8 +200,5 @@ public class Hangman {
                 "|\n";
     }
 
-    public boolean gameOver() {
 
-        return true;
-    }
 }
