@@ -13,5 +13,9 @@ public class BST<D> {
         Testers.checkIsEmpty(nonEmptyBST);
         Testers.checkIsEmpty(nonEmptyBST);
 
+        Testers.checkAddMemberCardinality(emptyBST, 5);
+        Testers.checkAddMemberCardinality(nonEmptyBST, 5);
+        Testers.checkAddMemberCardinality(nonEmptyBST, 6);
+
     }
 }
