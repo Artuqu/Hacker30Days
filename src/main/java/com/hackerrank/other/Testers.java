@@ -3,7 +3,28 @@ package com.hackerrank.other;
 import com.hackerrank.objects.EmptyBST;
 import com.hackerrank.objects.NonEmptyBST;
 
+import java.util.Random;
+
 public class Testers {
+
+    //    random integers
+    public static int randomInt(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min + 1) + min;
+//        min = 5, max = 15
+//        15 - 5 + 1 = 11 -> 0 to 10
+//         + 5 to this random number -> 5 to 15
+    }
+
+    //    random search trees
+
+    public static Tree randomTree(int count) {
+        if (count == 0) {
+            return new EmptyBST();
+        } else {
+            return randomTree(count - 1).add(randomInt(0, 50));
+        }
+    }
 
     public static void checkIsEmpty(Tree t) throws Exception {
 //if the tree t is an instance of EmptyBST --> t.isEmpty --> true
