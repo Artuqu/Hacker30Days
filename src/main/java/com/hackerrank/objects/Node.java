@@ -2,8 +2,8 @@ package com.hackerrank.objects;
 
 public class Node {
     int value;
-    Node left;
-    Node right;
+    public Node left;
+    public Node right;
 
 
     public Node(int root) {
@@ -28,9 +28,6 @@ public class Node {
             return current;
         }
         return current;
-    }
-    public int cardinality() {
-        return 1 + left.cardinality() + right.cardinality();
     }
 }
 

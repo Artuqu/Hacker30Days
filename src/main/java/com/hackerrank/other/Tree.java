@@ -7,5 +7,5 @@ public interface Tree <D extends Comparable<D>>{
     int cardinality();
     boolean member (D element);
     NonEmptyBST<D> add(D element);
-
+    
 }
