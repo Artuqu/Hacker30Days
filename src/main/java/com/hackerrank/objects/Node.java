@@ -5,6 +5,10 @@ public class Node {
     public Node left;
     public Node right;
 
+    public int getValue() {
+        return value;
+    }
+
 
     public Node(int root) {
         this.value = root;

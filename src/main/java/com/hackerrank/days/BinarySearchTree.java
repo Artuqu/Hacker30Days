@@ -16,7 +16,7 @@ public class BinarySearchTree<D> {
             int i = binaryTree.maxDepth(binaryTree.add(node));
             binaryTreeSize--;
             if (binaryTreeSize == 0) {
-                System.out.println(i - 1);
+                System.out.println(i);
             }
         }
         scanner.close();

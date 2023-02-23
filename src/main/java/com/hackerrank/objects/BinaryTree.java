@@ -3,6 +3,9 @@ package com.hackerrank.objects;
 public class BinaryTree {
     Node root;
 
+    public BinaryTree() {
+    }
+
     public Node add(int value) {
         root = Node.addRecursive(root, value);
         return root;
@@ -10,7 +13,7 @@ public class BinaryTree {
 
     public int maxDepth(Node node) {
         if (node == null)
-            return 0;
+            return -1;
         else {
             /* compute the depth of each subtree */
             int lDepth = maxDepth(node.left);
@@ -18,12 +21,15 @@ public class BinaryTree {
 
             /* use the larger one */
             if (lDepth > rDepth) {
-             return (lDepth + 1);
+                return (lDepth + 1);
             } else {
-              return (rDepth + 1);
+                return (rDepth + 1);
             }
         }
     }
 
-}
+    public void printTree(BinaryTree binaryTree, int value) {
+//        System.out.println(printTree(binaryTree, binaryTree.root.getValue()));
 
+    }
+}
