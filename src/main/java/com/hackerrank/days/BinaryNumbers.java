@@ -20,6 +20,7 @@ public class BinaryNumbers {
         int result = 0;
         int remainder = 0;
         HashSet<Integer> score = new HashSet<>();
+        StringBuilder binaryNumber = new StringBuilder();
         while (n > 0) {
             remainder = n % 2;
             n = n / 2;
@@ -27,12 +28,15 @@ public class BinaryNumbers {
                 result++;
             } else {
                 score.add(result);
+                binaryNumber.append(result);
                 result = 0;
             }
             if (n == 0) {
+                binaryNumber.append(result);
                 score.add(result);
             }
         }
+        System.out.println(binaryNumber.reverse());
         System.out.println(Collections.max(score));
         return Collections.max(score);
     }
