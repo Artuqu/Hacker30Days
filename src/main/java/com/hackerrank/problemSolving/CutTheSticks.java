@@ -22,6 +22,7 @@ public class CutTheSticks {
                 .toList();
 
         List<Integer> result = cutSticks(sticksList);
+        List<Integer> result2 = cutSticks2(sticksList);
 
         bufferedWriter.write(
                 result.stream()
@@ -34,11 +35,32 @@ public class CutTheSticks {
         bufferedReader.close();
     }
 
+    private static List<Integer> cutSticks2(List<Integer> sticksList) {
+        LinkedList<Integer> copySticks = new LinkedList<>(sticksList);
+        List<Integer> numbersOfSticks = new ArrayList<>();
+        numbersOfSticks.add(copySticks.size());
+        while (copySticks.size() > 0) {
+            int shortestStick = Collections.min(copySticks);
+            for (int i = 0; i < copySticks.size(); i++) {
+                if (copySticks.get(i).equals(shortestStick)) {
+                    copySticks.remove(Integer.valueOf(shortestStick));
+                    i--;
+                }
+            }
+            if (copySticks.size() > 0) {
+                numbersOfSticks.add(copySticks.size());
+            }
+        }
+        for (Integer i : numbersOfSticks) {
+            System.out.println(i);
+        }
+        return numbersOfSticks;
+    }
+
     public static List<Integer> cutSticks(List<Integer> sticksList) {
         LinkedList<Integer> copySticks = new LinkedList<>(sticksList);
         List<Integer> numbersOfSticks = new ArrayList<>();
         numbersOfSticks.add(copySticks.size());
-        int size = copySticks.size();
 
         while (copySticks.size() > 0) {
             int shortestStick = Collections.min(copySticks);
@@ -49,7 +71,6 @@ public class CutTheSticks {
         }
         for (Integer i : numbersOfSticks) {
             System.out.println(i);
-
         }
         return numbersOfSticks;
     }
