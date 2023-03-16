@@ -1,5 +1,8 @@
 package com.hackerrank.objects;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree {
     Node root;
 
@@ -9,6 +12,10 @@ public class BinaryTree {
     public Node add(int value) {
         root = Node.addRecursive(root, value);
         return root;
+    }
+
+    public void getRoot() {
+         Node.printTree();
     }
 
     public int maxDepth(Node node) {
@@ -28,8 +35,38 @@ public class BinaryTree {
         }
     }
 
-    public void printTree(BinaryTree binaryTree, int value) {
-//        System.out.println(printTree(binaryTree, binaryTree.root.getValue()));
+    public void printTree(Queue<Node> q) {
+
+        if (!q.isEmpty()) {
+            Node c = q.remove();
+            System.out.print(c.getValue() + " ");
+            if (c != null) {
+                if (c.left != null) {
+                    q.add(c.left);
+                }
+                if (c.right != null) {
+                    q.add(c.right);
+                }
+            }
+            printTree(q);
+        }
 
     }
+
+
+
+    public void levelOrder(Node root) {
+    LinkedList<Integer> queue = new LinkedList<>();
+        //we print the root
+        //push non-null children in the queue
+        if (root.left != null) queue.add(root.left.getValue());
+        if (root.right != null) queue.add(root.right.getValue());
+
+        for (Integer i :queue
+             ) {
+            System.out.println(i);
+
+        }
+    }
+
 }

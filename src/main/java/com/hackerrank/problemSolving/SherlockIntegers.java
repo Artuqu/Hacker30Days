@@ -21,6 +21,7 @@ public class SherlockIntegers {
                 int result = squares(a, b);
 
 
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
