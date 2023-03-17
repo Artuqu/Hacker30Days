@@ -30,7 +30,6 @@ public class CutTheSticks {
                         .collect(Collectors.joining("\n"))
                         + "\n"
         );
-
         bufferedWriter.close();
         bufferedReader.close();
     }
